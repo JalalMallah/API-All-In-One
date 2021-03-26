@@ -14,7 +14,7 @@ export default function Header() {
 
   return (
     <HeaderWrapper>
-      <Logo to='/'>API All In One</Logo>
+      <Logo to='/'>API Hub</Logo>
       <OpenSidebarIcon onClick={openSidebar}>
         <FontAwesomeIcon icon={faBars} />
       </OpenSidebarIcon>
@@ -34,7 +34,7 @@ const HeaderWrapper = styled.header`
 
 const Logo = styled(Link)`
   color: var(--light-gray);
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: 500;
   text-decoration: none;
   text-transform: uppercase;

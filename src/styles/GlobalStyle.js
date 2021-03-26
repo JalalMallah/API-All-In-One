@@ -22,8 +22,8 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     margin: 0;
+    background-color: var(--light-gray);
     font-size: 1.6rem;
-    text-align: center;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
