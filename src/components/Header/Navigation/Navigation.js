@@ -33,7 +33,7 @@ export default function Navigation() {
         </ListItem>
         <ListItem>
           <StyledNavLink to='/exchange-rate' activeClassName='active-link' onClick={closeSidebar}>
-            Exchange Rate
+            Exchange Rates
           </StyledNavLink>
         </ListItem>
       </List>
@@ -85,6 +85,7 @@ const List = styled.ul`
 
 const ListItem = styled.li`
   margin: 0 0 3rem;
+  text-align: center;
 `;
 
 const StyledNavLink = styled(NavLink)`

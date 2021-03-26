@@ -27,7 +27,7 @@ const HeaderWrapper = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem 1.5rem;
+  padding: 1.5rem;
   background-color: var(--dark-blue);
   color: var(--light-gray);
 `;

@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   :root {
+    --body-background: #dcdde1;
     --custom-yellow: #fbc531;
     --dark-blue: #192a56;
     --light-blue: #273c75;
@@ -22,7 +23,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     margin: 0;
-    background-color: var(--light-gray);
+    background-color: var(--body-background);
     font-size: 1.6rem;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

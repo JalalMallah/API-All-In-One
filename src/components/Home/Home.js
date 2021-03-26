@@ -2,9 +2,9 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-export default function Main() {
+export default function Home() {
   return (
-    <MainWrapper>
+    <HomeWrapper>
       <Title>About this project</Title>
       <Text>
         This website aims to group few small API-related projects into one. My goal was to create
@@ -20,11 +20,11 @@ export default function Main() {
         <ListItem>Song lyrics 🎵</ListItem>
       </List>
       <Subtitle>Enjoy! 😃</Subtitle>
-    </MainWrapper>
+    </HomeWrapper>
   );
 }
 
-const MainWrapper = styled.main`
+const HomeWrapper = styled.main`
   padding: 1rem 1.5rem;
 `;
 
