@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import Header from 'components/Header/Header';
+
 import Home from 'components/views/Home/Home';
 import Quotes from 'components/views/Quotes/Quotes';
 import Weather from 'components/views/Weather/Weather';
