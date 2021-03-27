@@ -32,7 +32,7 @@ export default function Navigation() {
           </StyledNavLink>
         </ListItem>
         <ListItem>
-          <StyledNavLink to='/exchange-rate' activeClassName='active-link' onClick={closeSidebar}>
+          <StyledNavLink to='/exchange-rates' activeClassName='active-link' onClick={closeSidebar}>
             Exchange Rates
           </StyledNavLink>
         </ListItem>
