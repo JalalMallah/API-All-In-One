@@ -10,18 +10,18 @@ import { faHome } from '@fortawesome/free-solid-svg-icons';
 
 export default function PageNotFound() {
   return (
-    <PageNotFoundWrapper>
+    <Wrapper>
       <Title>Oops...!</Title>
-      <Text>We can't seem to find the page you're looking for...</Text>
+      <Paragraph>We can't seem to find the page you're looking for...</Paragraph>
       <Button to='/'>
         Go back home <FontAwesomeIcon icon={faHome} />
       </Button>
       <Image src={Image404} alt='Page not found' />
-    </PageNotFoundWrapper>
+    </Wrapper>
   );
 }
 
-const PageNotFoundWrapper = styled.main`
+const Wrapper = styled.main`
   padding: 1rem 1.5rem;
 `;
 
@@ -30,14 +30,10 @@ const Title = styled.h1`
   font-size: 3rem;
 `;
 
-const Text = styled.p`
+const Paragraph = styled.p`
   margin: 0;
   font-size: 1.5rem;
   line-height: 1.4;
-
-  @media (min-width: 360px) {
-    font-size: 1.6rem;
-  }
 `;
 
 const Button = styled(Link)`

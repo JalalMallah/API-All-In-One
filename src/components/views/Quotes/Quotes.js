@@ -28,21 +28,17 @@ export default function Quotes() {
   }, [generateRandomQuote]);
 
   return (
-    <QuotesWrapper>
+    <Wrapper>
       <Title>Get inspired with our quotes!</Title>
       <QuoteText>"{quoteText}"</QuoteText>
       <QuoteAuthor>{quoteAuthor ?? 'Author Unknown'}</QuoteAuthor>
       <Button onClick={generateRandomQuote}>Get New Quote</Button>
-    </QuotesWrapper>
+    </Wrapper>
   );
 }
 
-const QuotesWrapper = styled.main`
+const Wrapper = styled.main`
   padding: 1rem 1.5rem;
-
-  @media (min-width: 360px) {
-    padding: 2rem 1.5rem;
-  }
 `;
 
 const Title = styled.h1`

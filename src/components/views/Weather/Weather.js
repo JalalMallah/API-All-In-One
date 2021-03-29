@@ -127,7 +127,7 @@ export default function Weather() {
   };
 
   return (
-    <Main>
+    <Wrapper>
       <Title>Get current weather for a given location 🌤️</Title>
       <Form>
         <CityInput
@@ -142,11 +142,11 @@ export default function Weather() {
       </Form>
       {weatherData && renderWeatherData()}
       {!hasFoundCity && <Text>City not found...Please try again.</Text>}
-    </Main>
+    </Wrapper>
   );
 }
 
-const Main = styled.main`
+const Wrapper = styled.main`
   padding: 1rem 1.5rem;
 `;
 
