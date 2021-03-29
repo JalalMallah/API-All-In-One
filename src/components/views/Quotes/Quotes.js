@@ -1,21 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 import styled from 'styled-components';
 
 const URL = 'https://type.fit/api/quotes';
 
 export default function Quotes() {
-  const [quote, setQuote] = useState('');
-  const [author, setAuthor] = useState('');
+  const [quoteText, setQuoteText] = useState('');
+  const [quoteAuthor, setQuoteAuthor] = useState('');
 
-  const generateRandomQuote = async () => {
+  const generateRandomQuote = useCallback(async () => {
     const quotes = await getQuotes();
     const quotesCount = quotes.length;
     const randomIndex = ~~(Math.random() * quotesCount);
     const quote = quotes[randomIndex];
-    setQuote(quote.text);
-    setAuthor(quote.author);
-  };
+    setQuoteText(quote.text);
+    setQuoteAuthor(quote.author);
+  }, []);
 
   const getQuotes = async () => {
     const res = await fetch(URL);
@@ -25,13 +25,13 @@ export default function Quotes() {
 
   useEffect(() => {
     generateRandomQuote();
-  }, []);
+  }, [generateRandomQuote]);
 
   return (
     <QuotesWrapper>
       <Title>Get inspired with our quotes!</Title>
-      <QuoteText>"{quote}"</QuoteText>
-      <QuoteAuthor>{author ?? 'Author Unknown'}</QuoteAuthor>
+      <QuoteText>"{quoteText}"</QuoteText>
+      <QuoteAuthor>{quoteAuthor ?? 'Author Unknown'}</QuoteAuthor>
       <Button onClick={generateRandomQuote}>Get New Quote</Button>
     </QuotesWrapper>
   );

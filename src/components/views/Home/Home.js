@@ -15,7 +15,7 @@ export default function Home() {
       <Text>Available options include:</Text>
       <List>
         <ListItem>Quotes for daily inspiration 🧠</ListItem>
-        <ListItem>Weather forecast 🌥️</ListItem>
+        <ListItem>Current weather 🌥️</ListItem>
         <ListItem>Exchange rates 💵</ListItem>
         <ListItem>Song lyrics 🎵</ListItem>
       </List>
