@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 import styled from 'styled-components';
+
+import { Paragraph, Title } from 'styles/MyStyledComponents';
 
 import Image404 from 'assets/404.png';
 
@@ -25,20 +26,9 @@ const Wrapper = styled.main`
   padding: 1rem 1.5rem;
 `;
 
-const Title = styled.h1`
-  margin: 0 0 1rem;
-  font-size: 3rem;
-`;
-
-const Paragraph = styled.p`
-  margin: 0;
-  font-size: 1.5rem;
-  line-height: 1.4;
-`;
-
 const Button = styled(Link)`
   display: inline-block;
-  margin: 1rem auto 1.5rem;
+  margin: 0 auto 1.5rem;
   padding: 0.5rem 2rem;
   outline: none;
   border: none;

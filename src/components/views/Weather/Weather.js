@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
-
 import styled, { keyframes } from 'styled-components';
+
+import { Button, Title, Wrapper } from 'styles/MyStyledComponents';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -173,19 +174,6 @@ const bounce = keyframes`
   }
 `;
 
-const Wrapper = styled.main`
-  padding: 1rem 1.5rem;
-`;
-
-const Title = styled.h1`
-  margin: 0 0 1rem;
-  font-size: 1.8rem;
-
-  @media (min-width: 360px) {
-    font-size: 2.2rem;
-  }
-`;
-
 const Form = styled.form`
   display: flex;
   justify-content: space-between;
@@ -209,25 +197,10 @@ const CityInput = styled.input`
   }
 `;
 
-const SearchButton = styled.button`
+const SearchButton = styled(Button)`
   padding: 0.5rem 2rem;
   border: 1px solid var(--dark-blue);
   border-radius: 0 3px 3px 0;
-  outline: none;
-  background-color: var(--dark-blue);
-  color: var(--light-gray);
-  font-family: var(--main-font);
-  font-size: 1.5rem;
-  transition: background-color 0.3s ease;
-  cursor: pointer;
-
-  &:active {
-    transform: scale(0.98);
-  }
-
-  &:hover {
-    background-color: var(--light-blue);
-  }
 `;
 
 const WeatherMainInfo = styled.section`

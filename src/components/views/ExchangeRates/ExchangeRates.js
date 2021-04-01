@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
+import { Button, Paragraph, Title, Wrapper } from 'styles/MyStyledComponents';
+
 const APIKey = '65ae7a288dd355c89554072f';
 
 export default function ExchangeRates() {
@@ -114,7 +116,7 @@ export default function ExchangeRates() {
           />
         </Row>
         <Row>
-          <SwapButton onClick={swapCurrencies}>Swap</SwapButton>
+          <Button onClick={swapCurrencies}>Swap</Button>
           <RateInfo>{conversionRate && showRateInfo()}</RateInfo>
         </Row>
         <Row>
@@ -184,21 +186,6 @@ export default function ExchangeRates() {
   );
 }
 
-const Wrapper = styled.main`
-  padding: 1rem 1.5rem;
-`;
-
-const Title = styled.h1`
-  margin: 0 0 1rem;
-  font-size: 1.8rem;
-`;
-
-const Paragraph = styled.p`
-  margin: 0 0 1rem;
-  font-size: 1.5rem;
-  line-height: 1.4;
-`;
-
 const Container = styled.section`
   display: grid;
   place-items: center;
@@ -245,28 +232,6 @@ const Input = styled.input`
 
   &:focus {
     border: 1px solid #888;
-  }
-`;
-
-const SwapButton = styled.button`
-  padding: 0.8rem 2rem;
-  border: none;
-  border-radius: 3px;
-  outline: none;
-  background-color: var(--dark-blue);
-  color: var(--light-gray);
-  font-family: var(--main-font);
-  font-size: 1.5rem;
-  font-weight: 500;
-  transition: background-color 0.3s ease;
-  cursor: pointer;
-
-  &:active {
-    transform: scale(0.98);
-  }
-
-  &:hover {
-    background-color: var(--light-blue);
   }
 `;
 

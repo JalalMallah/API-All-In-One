@@ -1,7 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { baseURL, LyricsContext } from './LyricsContext';
-import styled from 'styled-components';
+
+import { Title, Wrapper } from 'styles/MyStyledComponents';
 
 import SearchForm from './SearchForm/SearchForm';
 import Loader from './Loader/Loader';
@@ -49,19 +50,10 @@ export default function LyricsSearch() {
         <Route path='/lyrics-app' exact>
           {response && <SongList />}
         </Route>
-        <Route path='/lyrics-app/lyrics-panel'>
+        <Route path='/lyrics-app/lyrics-panel' exact>
           <LyricsPanel />
         </Route>
       </Wrapper>
     </BrowserRouter>
   );
 }
-
-const Wrapper = styled.main`
-  padding: 1rem 1.5rem;
-`;
-
-const Title = styled.h1`
-  margin: 0 0 1rem;
-  font-size: 1.8rem;
-`;

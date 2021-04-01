@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { baseURL, LyricsContext } from '../LyricsContext';
-
 import styled from 'styled-components';
+
+import { Button } from 'styles/MyStyledComponents';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlayCircle } from '@fortawesome/free-solid-svg-icons';
@@ -35,9 +36,9 @@ export default function LyricsPanel() {
           <SongInfo>
             <h2>{title}</h2>
             <h3>{artist}</h3>
-            <a href={preview} target='_blank' rel='noreferrer'>
+            <SongPreviewButton as='a' href={preview} target='_blank' rel='noreferrer'>
               <FontAwesomeIcon icon={faPlayCircle} /> Song Preview
-            </a>
+            </SongPreviewButton>
           </SongInfo>
         </SongInfoContainer>
         <SongLyrics>{lyrics}</SongLyrics>
@@ -76,24 +77,13 @@ const SongInfo = styled.section`
     font-size: 1.8rem;
     font-weight: 500;
   }
+`;
 
-  & a {
-    display: inline-block;
-    /* padding: 0.8rem 2rem; */
-    padding: 0.5rem 1.2rem;
-    border: none;
-    border-radius: 15px;
-    background-color: var(--dark-blue);
-    color: var(--light-gray);
-    font-family: var(--main-font);
-    font-size: 1.4rem;
-    font-weight: 500;
-    text-decoration: none;
-
-    &:active {
-      transform: scale(0.98);
-    }
-  }
+const SongPreviewButton = styled(Button)`
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  border-radius: 15px;
+  font-size: 1.4rem;
 `;
 
 const SongLyrics = styled.section`

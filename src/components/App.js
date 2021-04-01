@@ -13,19 +13,17 @@ import Header from 'components/Header/Header';
 
 const App = () => {
   return (
-    <>
+    <LyricsProvider>
       <Header />
       <Switch>
         <Route path='/' exact component={Home} />
         <Route path='/quotes' component={Quotes} />
         <Route path='/weather' component={Weather} />
         <Route path='/exchange-rates' component={ExchangeRates} />
-        <LyricsProvider>
-          <Route path='/lyrics-app' exact component={LyricsSearch} />
-        </LyricsProvider>
+        <Route path='/lyrics-app' exact component={LyricsSearch} />
         <Route component={PageNotFound} />
       </Switch>
-    </>
+    </LyricsProvider>
   );
 };
 

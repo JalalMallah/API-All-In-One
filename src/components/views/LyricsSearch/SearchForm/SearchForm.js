@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import { Button } from 'styles/MyStyledComponents';
+
 export default function SearchForm({ handleChange, handleSubmit, term }) {
   return (
     <Form onSubmit={handleSubmit}>
@@ -40,21 +42,10 @@ const SearchInput = styled.input`
   font-size: 1.5rem;
 `;
 
-const SearchButton = styled.button`
+const SearchButton = styled(Button)`
   position: absolute;
   top: 2px;
   right: 2px;
   padding: 0.8rem 1.5rem;
-  border: none;
   border-radius: 50px;
-  outline: none;
-  background-color: var(--dark-blue);
-  color: var(--light-gray);
-  font-family: var(--main-font);
-  font-size: 1.5rem;
-  font-weight: 500;
-
-  &:active {
-    transform: scale(0.98);
-  }
 `;

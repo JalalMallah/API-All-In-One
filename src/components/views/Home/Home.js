@@ -1,6 +1,7 @@
 import React from 'react';
-
 import styled from 'styled-components';
+
+import { Paragraph, Title, Wrapper } from 'styles/MyStyledComponents';
 
 export default function Home() {
   return (
@@ -23,21 +24,6 @@ export default function Home() {
     </Wrapper>
   );
 }
-
-const Wrapper = styled.main`
-  padding: 1rem 1.5rem;
-`;
-
-const Title = styled.h1`
-  margin: 0 0 1rem;
-  font-size: 1.8rem;
-`;
-
-const Paragraph = styled.p`
-  margin: 0 0 1rem;
-  font-size: 1.5rem;
-  line-height: 1.4;
-`;
 
 const List = styled.ul`
   margin: 0 0 2rem;

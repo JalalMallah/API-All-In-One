@@ -2,8 +2,9 @@ import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { LyricsContext } from '../../LyricsContext';
 import PropTypes from 'prop-types';
-
 import styled from 'styled-components';
+
+import { Button } from 'styles/MyStyledComponents';
 
 export default function Item({ artist, cover, preview, title }) {
   const { setSongInfo } = useContext(LyricsContext);
@@ -53,19 +54,8 @@ const StyledItem = styled.li`
   }
 `;
 
-const StyledButton = styled.button`
+const StyledButton = styled(Button)`
   padding: 0.5rem 1.5rem;
-  border: none;
   border-radius: 15px;
-  outline: none;
-  background-color: var(--dark-blue);
-  color: var(--light-gray);
-  font-family: var(--main-font);
   font-size: 1.2rem;
-  font-weight: 500;
-  cursor: pointer;
-
-  &:active {
-    transform: scale(0.98);
-  }
 `;
