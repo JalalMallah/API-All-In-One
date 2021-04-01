@@ -36,6 +36,16 @@ export default function Navigation() {
             Exchange Rates
           </StyledNavLink>
         </ListItem>
+        <ListItem>
+          <StyledNavLink
+            to='/lyrics-app'
+            exact
+            activeClassName='active-link'
+            onClick={closeSidebar}
+          >
+            Song Lyrics
+          </StyledNavLink>
+        </ListItem>
       </List>
     </Sidebar>
   );
@@ -43,6 +53,7 @@ export default function Navigation() {
 
 const Sidebar = styled.nav`
   position: fixed;
+  z-index: 2;
   top: 0;
   right: 0;
   display: flex;

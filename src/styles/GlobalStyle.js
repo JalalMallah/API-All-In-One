@@ -18,15 +18,11 @@ const GlobalStyle = createGlobalStyle`
     --main-font: 'Red Hat Text', sans-serif;
     font-family: var(--main-font);
     font-size: 62.5%;
-    scroll-behavior: smooth;
   }
 
   body {
-    margin: 0;
     background-color: var(--body-background);
     font-size: 1.6rem;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
   }
 
 `;

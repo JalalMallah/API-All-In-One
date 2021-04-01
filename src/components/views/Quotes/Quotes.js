@@ -13,7 +13,7 @@ export default function Quotes() {
     const quotesCount = quotes.length;
     const randomIndex = ~~(Math.random() * quotesCount);
     const quote = quotes[randomIndex];
-    setQuoteText(quote.text);
+    setQuoteText(`"${quote.text}"`);
     setQuoteAuthor(quote.author);
   }, []);
 
@@ -30,7 +30,7 @@ export default function Quotes() {
   return (
     <Wrapper>
       <Title>Get inspired with our quotes!</Title>
-      <QuoteText>"{quoteText}"</QuoteText>
+      <QuoteText>{quoteText}</QuoteText>
       <QuoteAuthor>{quoteAuthor ?? 'Author Unknown'}</QuoteAuthor>
       <Button onClick={generateRandomQuote}>Get New Quote</Button>
     </Wrapper>

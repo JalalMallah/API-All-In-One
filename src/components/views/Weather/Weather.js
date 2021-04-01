@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -21,11 +21,14 @@ export default function Weather() {
   const [hasFoundCity, setHasFoundCity] = useState(true);
   const [weatherData, setWeatherData] = useState('');
 
+  const loaderRef = useRef();
+
   const handleInputChange = e => setCity(e.target.value);
   const handleButtonClick = e => {
     e.preventDefault();
     if (!city) return;
 
+    showLoadingAnimation();
     getWeatherForGivenCity(city);
     setCity('');
   };
@@ -62,6 +65,7 @@ export default function Weather() {
     };
 
     setWeatherData(weatherData);
+    hideLoadingAnimation();
   };
 
   const renderWeatherData = () => {
@@ -126,6 +130,14 @@ export default function Weather() {
     return null;
   };
 
+  function showLoadingAnimation() {
+    loaderRef.current.style.display = 'flex';
+  }
+
+  function hideLoadingAnimation() {
+    loaderRef.current.style.display = 'none';
+  }
+
   return (
     <Wrapper>
       <Title>Get current weather for a given location 🌤️</Title>
@@ -140,11 +152,26 @@ export default function Weather() {
         />
         <SearchButton onClick={handleButtonClick}>Search</SearchButton>
       </Form>
+      <LoadingAnimation ref={loaderRef}>
+        <span></span>
+        <span></span>
+        <span></span>
+      </LoadingAnimation>
       {weatherData && renderWeatherData()}
       {!hasFoundCity && <Text>City not found...Please try again.</Text>}
     </Wrapper>
   );
 }
+
+const bounce = keyframes`
+  0, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+`;
 
 const Wrapper = styled.main`
   padding: 1rem 1.5rem;
@@ -246,4 +273,28 @@ const Text = styled.p`
   margin: 0 0 1rem;
   font-size: 1.5rem;
   line-height: 1.4;
+`;
+
+const LoadingAnimation = styled.div`
+  display: none;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem auto 0;
+
+  & > span {
+    margin: 0 0.3rem;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--dark-blue);
+    animation: ${bounce} 0.5s linear infinite;
+
+    &:nth-of-type(2) {
+      animation-delay: 0.1s;
+    }
+
+    &:nth-of-type(3) {
+      animation-delay: 0.2s;
+    }
+  }
 `;
