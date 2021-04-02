@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import { LyricsContext } from '../../LyricsContext';
 import styled from 'styled-components';
 
+import { Button } from 'styles/MyStyledComponents';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLongArrowAltLeft, faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons';
 
@@ -57,20 +59,10 @@ const Wrapper = styled.section`
   text-align: center;
 `;
 
-const PaginationButton = styled.button`
+const PaginationButton = styled(Button)`
+  display: inline-block;
   margin: 0 0.5rem;
   padding: 0.5rem 1.5rem;
-  border: none;
   border-radius: 15px;
-  outline: none;
-  background-color: var(--dark-blue);
-  color: var(--light-gray);
-  font-family: var(--main-font);
   font-size: 1.2rem;
-  font-weight: 500;
-  cursor: pointer;
-
-  &:active {
-    transform: scale(0.98);
-  }
 `;
