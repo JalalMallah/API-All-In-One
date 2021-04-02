@@ -4,8 +4,8 @@ import { baseURL, LyricsContext } from './LyricsContext';
 
 import { Title, Wrapper } from 'styles/MyStyledComponents';
 
+import Loader from 'components/Loader/Loader';
 import SearchForm from './SearchForm/SearchForm';
-import Loader from './Loader/Loader';
 import SongList from './SongList/SongList';
 import LyricsPanel from './LyricsPanel/LyricsPanel';
 

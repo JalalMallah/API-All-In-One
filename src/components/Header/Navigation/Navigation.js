@@ -46,6 +46,16 @@ export default function Navigation() {
             Song Lyrics
           </StyledNavLink>
         </ListItem>
+        <ListItem>
+          <StyledNavLink
+            to='/meal-finder'
+            exact
+            activeClassName='active-link'
+            onClick={closeSidebar}
+          >
+            Meal Finder
+          </StyledNavLink>
+        </ListItem>
       </List>
     </Sidebar>
   );

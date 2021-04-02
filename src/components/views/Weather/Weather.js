@@ -1,7 +1,8 @@
-import React, { useRef, useState } from 'react';
-import styled, { keyframes } from 'styled-components';
+import React, { useState } from 'react';
+import styled from 'styled-components';
 
-import { Button, Title, Wrapper } from 'styles/MyStyledComponents';
+import Loader from 'components/Loader/Loader';
+import { Button, Paragraph, Title, Wrapper } from 'styles/MyStyledComponents';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -21,15 +22,14 @@ export default function Weather() {
   const [city, setCity] = useState('');
   const [hasFoundCity, setHasFoundCity] = useState(true);
   const [weatherData, setWeatherData] = useState('');
-
-  const loaderRef = useRef();
+  const [shouldShowLoader, setShouldShowLoader] = useState(false);
 
   const handleInputChange = e => setCity(e.target.value);
   const handleButtonClick = e => {
     e.preventDefault();
     if (!city) return;
 
-    showLoadingAnimation();
+    setShouldShowLoader(true);
     getWeatherForGivenCity(city);
     setCity('');
   };
@@ -66,7 +66,7 @@ export default function Weather() {
     };
 
     setWeatherData(weatherData);
-    hideLoadingAnimation();
+    setShouldShowLoader(false);
   };
 
   const renderWeatherData = () => {
@@ -131,14 +131,6 @@ export default function Weather() {
     return null;
   };
 
-  function showLoadingAnimation() {
-    loaderRef.current.style.display = 'flex';
-  }
-
-  function hideLoadingAnimation() {
-    loaderRef.current.style.display = 'none';
-  }
-
   return (
     <Wrapper>
       <Title>Get current weather for a given location 🌤️</Title>
@@ -153,26 +145,12 @@ export default function Weather() {
         />
         <SearchButton onClick={handleButtonClick}>Search</SearchButton>
       </Form>
-      <LoadingAnimation ref={loaderRef}>
-        <span></span>
-        <span></span>
-        <span></span>
-      </LoadingAnimation>
+      {shouldShowLoader && <Loader />}
       {weatherData && renderWeatherData()}
-      {!hasFoundCity && <Text>City not found...Please try again.</Text>}
+      {!hasFoundCity && <Paragraph>City not found...Please try again.</Paragraph>}
     </Wrapper>
   );
 }
-
-const bounce = keyframes`
-  0, 100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-10px);
-  }
-`;
 
 const Form = styled.form`
   display: flex;
@@ -239,35 +217,5 @@ const WeatherInfoList = styled.ul`
 
   & li:first-child {
     border-top: 1px solid #888;
-  }
-`;
-
-const Text = styled.p`
-  margin: 0 0 1rem;
-  font-size: 1.5rem;
-  line-height: 1.4;
-`;
-
-const LoadingAnimation = styled.div`
-  display: none;
-  justify-content: center;
-  align-items: center;
-  margin: 3rem auto 0;
-
-  & > span {
-    margin: 0 0.3rem;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: var(--dark-blue);
-    animation: ${bounce} 0.5s linear infinite;
-
-    &:nth-of-type(2) {
-      animation-delay: 0.1s;
-    }
-
-    &:nth-of-type(3) {
-      animation-delay: 0.2s;
-    }
   }
 `;
