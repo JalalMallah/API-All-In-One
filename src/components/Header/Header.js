@@ -8,6 +8,7 @@ import styled from 'styled-components';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faGithubAlt, faLinkedinIn, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 export default function Header() {
   const { openSidebar } = useContext(AppContext);
@@ -15,9 +16,20 @@ export default function Header() {
   return (
     <HeaderWrapper>
       <Logo to='/'>API Hub</Logo>
-      <OpenSidebarIcon onClick={openSidebar}>
-        <FontAwesomeIcon icon={faBars} />
-      </OpenSidebarIcon>
+      <IconWrapper>
+        <Icon as='a' href='https://github.com/JalalMallah' target='_blank'>
+          <FontAwesomeIcon icon={faGithubAlt} />
+        </Icon>
+        <Icon as='a' href='https://www.linkedin.com/in/jalal-mallah' target='_blank'>
+          <FontAwesomeIcon icon={faLinkedinIn} />
+        </Icon>
+        <Icon as='a' href='https://twitter.com/jalal_mallah_' target='_blank'>
+          <FontAwesomeIcon icon={faTwitter} />
+        </Icon>
+        <OpenSidebarIcon onClick={openSidebar}>
+          <FontAwesomeIcon icon={faBars} />
+        </OpenSidebarIcon>
+      </IconWrapper>
       <Navigation />
     </HeaderWrapper>
   );
@@ -30,6 +42,10 @@ const HeaderWrapper = styled.header`
   padding: 1.5rem;
   background-color: var(--dark-blue);
   color: var(--light-gray);
+`;
+
+const IconWrapper = styled.div`
+  margin: 0;
 `;
 
 const Logo = styled(Link)`
@@ -48,6 +64,7 @@ const Logo = styled(Link)`
 `;
 
 const OpenSidebarIcon = styled.button`
+  margin: 0 0 0 2rem;
   outline: none;
   border: none;
   background-color: transparent;
@@ -59,4 +76,9 @@ const OpenSidebarIcon = styled.button`
   &:hover {
     color: var(--custom-yellow);
   }
+`;
+
+const Icon = styled(OpenSidebarIcon)`
+  margin: 0 0 0 1.2rem;
+  font-size: 1.4rem;
 `;
