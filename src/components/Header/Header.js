@@ -42,6 +42,12 @@ const HeaderWrapper = styled.header`
   padding: 1.5rem;
   background-color: var(--dark-blue);
   color: var(--light-gray);
+
+  @media (min-height: 700px) {
+    position: sticky;
+    z-index: 2;
+    top: 0;
+  }
 `;
 
 const IconWrapper = styled.div`
