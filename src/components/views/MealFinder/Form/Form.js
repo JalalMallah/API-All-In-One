@@ -39,6 +39,10 @@ const StyledForm = styled.form`
   align-items: center;
   margin: 0 auto 2rem;
   text-align: center;
+
+  @media (min-width: 768px) {
+    margin: 0 auto 3rem;
+  }
 `;
 
 const StyledInput = styled.input`
@@ -55,6 +59,10 @@ const StyledInput = styled.input`
 
   &:focus {
     border: 1px solid #999;
+  }
+
+  @media (min-width: 360px) {
+    font-size: 1.6rem;
   }
 `;
 

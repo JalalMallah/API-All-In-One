@@ -29,6 +29,14 @@ const Form = styled.form`
   width: 100%;
   max-width: 500px;
   margin: 0 auto 1rem;
+
+  @media (min-width: 360px) {
+    margin: 0 auto 2rem;
+  }
+
+  @media (min-width: 768px) {
+    margin: 0 auto 3rem;
+  }
 `;
 
 const SearchInput = styled.input`
@@ -40,6 +48,10 @@ const SearchInput = styled.input`
   background-color: #fff;
   font-family: var(--main-font);
   font-size: 1.5rem;
+
+  @media (min-width: 360px) {
+    font-size: 1.6rem;
+  }
 `;
 
 const SearchButton = styled(Button)`

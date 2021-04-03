@@ -59,6 +59,10 @@ const SongInfoContainer = styled.section`
 const CoverContainer = styled.section`
   & img {
     width: 200px;
+
+    @media (min-width: 768px) {
+      width: 250px;
+    }
   }
 `;
 

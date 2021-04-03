@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { Paragraph, Title } from 'styles/MyStyledComponents';
+import { Paragraph, Title, Wrapper } from 'styles/MyStyledComponents';
 
 import Image404 from 'assets/404.png';
 
@@ -21,10 +21,6 @@ export default function PageNotFound() {
     </Wrapper>
   );
 }
-
-const Wrapper = styled.main`
-  padding: 1rem 1.5rem;
-`;
 
 const Button = styled(Link)`
   display: inline-block;

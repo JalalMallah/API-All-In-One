@@ -27,6 +27,10 @@ const Wrapper = styled.section`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 1rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 `;
 
 const MealContainer = styled.div`
@@ -35,6 +39,7 @@ const MealContainer = styled.div`
   height: 14rem;
   border: 3px solid var(--light-gray);
   border-radius: 3px;
+  cursor: pointer;
 
   & img {
     width: 100%;

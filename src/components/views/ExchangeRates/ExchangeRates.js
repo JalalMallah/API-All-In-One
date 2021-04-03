@@ -189,9 +189,8 @@ export default function ExchangeRates() {
 const Container = styled.section`
   display: grid;
   place-items: center;
-  width: 90%;
-  max-width: 500px;
-  margin: 2rem 0 0;
+  margin: 2rem auto 0;
+  max-width: 400px;
 `;
 
 const Row = styled.div`
@@ -220,6 +219,7 @@ const Select = styled.select`
 `;
 
 const Input = styled.input`
+  flex-basis: 60%;
   padding: 0.5rem;
   border: 1px solid #fff;
   border-radius: 3px;
