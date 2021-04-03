@@ -48,6 +48,14 @@ const HeaderWrapper = styled.header`
     z-index: 2;
     top: 0;
   }
+
+  @media (min-width: 768px) {
+    padding: 2rem;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 2rem 4rem;
+  }
 `;
 
 const IconWrapper = styled.div`
@@ -67,6 +75,10 @@ const Logo = styled(Link)`
   &:hover {
     color: var(--custom-yellow);
   }
+
+  @media (min-width: 768px) {
+    font-size: 2rem;
+  }
 `;
 
 const OpenSidebarIcon = styled.button`
@@ -82,9 +94,27 @@ const OpenSidebarIcon = styled.button`
   &:hover {
     color: var(--custom-yellow);
   }
+
+  @media (min-width: 360px) {
+    margin: 0 0 0 2.5rem;
+  }
+
+  @media (min-width: 768px) {
+    margin: 0 0 0 4rem;
+  }
 `;
 
 const Icon = styled(OpenSidebarIcon)`
   margin: 0 0 0 1.2rem;
   font-size: 1.4rem;
+
+  @media (min-width: 360px) {
+    margin: 0 0 0 1.5rem;
+    font-size: 1.6rem;
+  }
+
+  @media (min-width: 768px) {
+    margin: 0 0 0 2rem;
+    font-size: 1.8rem;
+  }
 `;
