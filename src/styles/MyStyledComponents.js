@@ -40,5 +40,5 @@ export const Title = styled.h1`
 `;
 
 export const Wrapper = styled.main`
-  padding: 1rem 1.5rem;
+  padding: 1rem 1.5rem 3rem;
 `;

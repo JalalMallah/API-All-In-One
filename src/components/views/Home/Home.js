@@ -19,6 +19,7 @@ export default function Home() {
         <li>Current weather 🌥️</li>
         <li>Exchange rates 💵</li>
         <li>Song lyrics 🎵</li>
+        <li>Meal Finder 🍖</li>
       </List>
       <Subtitle>Enjoy! 😃</Subtitle>
     </Wrapper>

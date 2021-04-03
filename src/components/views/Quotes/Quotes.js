@@ -30,7 +30,7 @@ export default function Quotes() {
 
   return (
     <Wrapper>
-      <Title>Get inspired with our quotes!</Title>
+      <Title>Get inspired with our quotes! 🧠</Title>
       <Paragraph>{quoteText}</Paragraph>
       <QuoteAuthor>{quoteAuthor ?? 'Author Unknown'}</QuoteAuthor>
       <GetNewQuoteButton onClick={generateRandomQuote}>Get New Quote</GetNewQuoteButton>
