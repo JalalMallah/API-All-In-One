@@ -34,9 +34,25 @@ const List = styled.ul`
   & li {
     margin: 0 0 0.5rem;
     font-size: 1.5rem;
+
+    @media (min-width: 360px) {
+      font-size: 1.6rem;
+    }
+
+    @media (min-width: 768px) {
+      font-size: 1.8rem;
+    }
   }
 `;
 
 const Subtitle = styled.h4`
   font-size: 1.5rem;
+
+  @media (min-width: 360px) {
+    font-size: 1.6rem;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 1.8rem;
+  }
 `;

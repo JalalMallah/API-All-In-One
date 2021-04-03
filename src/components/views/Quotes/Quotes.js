@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import { Button, Paragraph, Title } from 'styles/MyStyledComponents';
+import { Button, Paragraph, Title, Wrapper } from 'styles/MyStyledComponents';
 
 const URL = 'https://type.fit/api/quotes';
 
@@ -37,10 +37,6 @@ export default function Quotes() {
     </Wrapper>
   );
 }
-
-const Wrapper = styled.main`
-  padding: 1rem 1.5rem;
-`;
 
 const QuoteAuthor = styled(Paragraph)`
   font-size: 1.4rem;
