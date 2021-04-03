@@ -78,6 +78,10 @@ const Sidebar = styled.nav`
   @media (min-width: 360px) {
     width: 250px;
   }
+
+  @media (min-width: 768px) {
+    width: 300px;
+  }
 `;
 
 const CloseSidebarIcon = styled.button`
@@ -98,6 +102,15 @@ const CloseSidebarIcon = styled.button`
   @media (min-width: 360px) {
     font-size: 2.4rem;
   }
+
+  @media (min-width: 768px) {
+    top: 2rem;
+    right: 2rem;
+  }
+
+  @media (min-width: 1024px) {
+    right: 4rem;
+  }
 `;
 
 const List = styled.ul`
@@ -105,8 +118,12 @@ const List = styled.ul`
 `;
 
 const ListItem = styled.li`
-  margin: 0 0 3rem;
+  margin: 0 0 2rem;
   text-align: center;
+
+  @media (min-width: 360px) {
+    margin: 0 0 3rem;
+  }
 `;
 
 const StyledNavLink = styled(NavLink)`
