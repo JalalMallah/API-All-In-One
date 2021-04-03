@@ -22,6 +22,10 @@ export const Button = styled.button`
   &:hover {
     background-color: var(--light-blue);
   }
+
+  @media (min-width: 360px) {
+    font-size: 1.6rem;
+  }
 `;
 
 export const List = styled.ul`

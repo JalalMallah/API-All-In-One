@@ -157,6 +157,14 @@ const Form = styled.form`
   justify-content: space-between;
   align-items: center;
   margin: 0 0 1rem;
+
+  @media (min-width: 360px) {
+    margin: 0 0 2rem;
+  }
+
+  @media (min-width: 768px) {
+    margin: 0 0 3rem;
+  }
 `;
 
 const CityInput = styled.input`
@@ -172,6 +180,10 @@ const CityInput = styled.input`
 
   &:focus {
     border: 1px solid var(--dark-blue);
+  }
+
+  @media (min-width: 360px) {
+    font-size: 1.6rem;
   }
 `;
 
@@ -201,6 +213,24 @@ const WeatherMainInfo = styled.section`
   & small.feels_like {
     font-size: 1.2rem;
   }
+
+  @media (min-width: 360px) {
+    margin: 0 auto 2rem;
+  }
+
+  @media (min-width: 360px) {
+    & p.city {
+      font-size: 2.2rem;
+    }
+
+    & p.temperature {
+      font-size: 4rem;
+    }
+
+    & small.feels_like {
+      font-size: 1.4rem;
+    }
+  }
 `;
 
 const WeatherInfoList = styled.ul`
@@ -213,6 +243,14 @@ const WeatherInfoList = styled.ul`
     padding: 0.5rem;
     border-bottom: 1px solid #888;
     font-size: 1.5rem;
+
+    @media (min-width: 360px) {
+      font-size: 1.6rem;
+    }
+
+    @media (min-width: 768px) {
+      font-size: 1.8rem;
+    }
   }
 
   & li:first-child {
