@@ -1,6 +1,6 @@
 {
   "homepage": "https://jalalmallah.github.io/API-Hub/",
-  "name": "api_all_in_one",
+  "name": "api_hub",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
