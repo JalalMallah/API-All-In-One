@@ -4,7 +4,6 @@ import { LyricsContext } from '../LyricsContext';
 import { List } from 'styles/MyStyledComponents';
 
 import Item from './Item/Item';
-import Pagination from './Pagination/Pagination';
 
 export default function SongList() {
   const { response } = useContext(LyricsContext);
@@ -22,7 +21,6 @@ export default function SongList() {
           />
         ))}
       </List>
-      {(response.prev || response.next) && <Pagination />}
     </>
   );
 }
