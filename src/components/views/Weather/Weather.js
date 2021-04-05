@@ -39,7 +39,8 @@ export default function Weather() {
   };
 
   const getWeatherForGivenCity = city => {
-    const URL = `http://api.openweathermap.org/data/2.5/weather?q=${city.trim()}&appid=${APIKey}&units=metric`;
+    const cors_api_host = 'https://cors-anywhere.herokuapp.com/';
+    const URL = `${cors_api_host}http://api.openweathermap.org/data/2.5/weather?q=${city.trim()}&appid=${APIKey}&units=metric`;
     fetch(URL)
       .then(res => res.json())
       .then(data => {

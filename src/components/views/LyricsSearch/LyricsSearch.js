@@ -34,7 +34,6 @@ export default function LyricsSearch() {
     const data = await res.json();
 
     setResponse(data);
-    console.log(data);
     setShouldShowLoader(false);
   }
 

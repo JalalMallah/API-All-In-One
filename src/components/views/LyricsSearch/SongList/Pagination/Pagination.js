@@ -23,7 +23,7 @@ export default function Pagination() {
   }
 
   async function getMoreSongs(url) {
-    const cors_api_host = 'cors-anywhere.herokuapp.com';
+    const cors_api_host = 'https://cors-anywhere.herokuapp.com';
     const res = await fetch(`https://${cors_api_host}/${url}`);
     const data = await res.json();
     setResponse(data);
