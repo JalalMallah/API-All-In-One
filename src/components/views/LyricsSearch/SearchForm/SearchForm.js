@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { Button } from 'styles/MyStyledComponents';
 
 export default function SearchForm({ handleChange, handleSubmit, term }) {
+  useEffect(() => {
+    document.querySelector('input').focus();
+  }, []);
+
   return (
     <Form onSubmit={handleSubmit}>
       <SearchInput

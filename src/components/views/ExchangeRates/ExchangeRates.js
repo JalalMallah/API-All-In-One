@@ -16,6 +16,7 @@ export default function ExchangeRates() {
 
   useEffect(() => {
     calculateRate();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedBaseCurrency, selectedTargetCurrency, baseCurrencyAmount]);
 
   const handleBaseSelectChange = e => setSelectedBaseCurrency(e.target.value);

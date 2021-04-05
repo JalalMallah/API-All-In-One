@@ -60,7 +60,6 @@ export default function MealFinder() {
     const URL = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealID}`;
     const res = await fetch(URL);
     const data = await res.json();
-    console.log(data.meals[0]);
     setMealDetails(data.meals[0]);
     setShouldShowLoader(false);
   }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import Loader from 'components/Loader/Loader';
@@ -23,6 +23,10 @@ export default function Weather() {
   const [hasFoundCity, setHasFoundCity] = useState(true);
   const [weatherData, setWeatherData] = useState('');
   const [shouldShowLoader, setShouldShowLoader] = useState(false);
+
+  useEffect(() => {
+    document.querySelector('input').focus();
+  }, []);
 
   const handleInputChange = e => setCity(e.target.value);
   const handleButtonClick = e => {

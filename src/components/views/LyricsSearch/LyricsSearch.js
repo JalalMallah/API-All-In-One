@@ -34,11 +34,12 @@ export default function LyricsSearch() {
     const data = await res.json();
 
     setResponse(data);
+    console.log(data);
     setShouldShowLoader(false);
   }
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Wrapper>
         <Title>Find the lyrics for your favorite song! 🎵</Title>
         <SearchForm
