@@ -35,7 +35,6 @@ export default function Weather() {
 
     setShouldShowLoader(true);
     getWeatherForGivenCity(city);
-    setCity('');
   };
 
   const getWeatherForGivenCity = city => {
@@ -72,6 +71,7 @@ export default function Weather() {
 
     setWeatherData(weatherData);
     setShouldShowLoader(false);
+    setCity('');
   };
 
   const renderWeatherData = () => {
