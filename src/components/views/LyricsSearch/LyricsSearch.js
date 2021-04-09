@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { baseURL, LyricsContext } from './LyricsContext';
 
 import { Title, Wrapper } from 'styles/MyStyledComponents';
@@ -12,9 +12,15 @@ import LyricsPanel from './LyricsPanel/LyricsPanel';
 export default function LyricsSearch() {
   const [searchTerm, setSearchTerm] = useState('');
 
-  const { response, setResponse, setShouldShowLoader, shouldShowLoader } = useContext(
-    LyricsContext
-  );
+  const {
+    setResponse,
+    setShouldShowLoader,
+    shouldShowLoader,
+    shouldRenderLyricsPanel,
+    setShouldRenderLyricsPanel,
+    shouldRenderSongList,
+    setShouldRenderSongList,
+  } = useContext(LyricsContext);
 
   function handleInputChange(e) {
     setSearchTerm(e.target.value);
@@ -24,9 +30,8 @@ export default function LyricsSearch() {
     e.preventDefault();
     if (!searchTerm) return;
 
-    searchSongs(searchTerm);
-    setSearchTerm('');
     setShouldShowLoader(true);
+    searchSongs(searchTerm);
   }
 
   async function searchSongs(term) {
@@ -35,6 +40,9 @@ export default function LyricsSearch() {
 
     setResponse(data);
     setShouldShowLoader(false);
+    setShouldRenderSongList(true);
+    setShouldRenderLyricsPanel(false);
+    setSearchTerm('');
   }
 
   return (
@@ -47,12 +55,8 @@ export default function LyricsSearch() {
           term={searchTerm}
         />
         {shouldShowLoader && <Loader />}
-        <Route path='/lyrics-app' exact>
-          {response && <SongList />}
-        </Route>
-        <Route path='/lyrics-app/lyrics-panel' exact>
-          <LyricsPanel />
-        </Route>
+        {shouldRenderSongList && <SongList />}
+        {shouldRenderLyricsPanel && <LyricsPanel />}
       </Wrapper>
     </BrowserRouter>
   );

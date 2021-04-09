@@ -14,18 +14,22 @@ import Header from 'components/Header/Header';
 
 const App = () => {
   return (
-    <LyricsProvider>
+    <>
       <Header />
       <Switch>
         <Route path='/' exact component={Home} />
         <Route path='/quotes' component={Quotes} />
         <Route path='/weather' component={Weather} />
         <Route path='/exchange-rates' component={ExchangeRates} />
-        <Route path='/lyrics-app' exact component={LyricsSearch} />
+        <Route path='/lyrics-app' exact>
+          <LyricsProvider>
+            <LyricsSearch />
+          </LyricsProvider>
+        </Route>
         <Route path='/meal-finder' exact component={MealFinder} />
         <Route component={PageNotFound} />
       </Switch>
-    </LyricsProvider>
+    </>
   );
 };
 

@@ -1,52 +1,36 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { baseURL, LyricsContext } from '../LyricsContext';
+import React, { useContext } from 'react';
+import { LyricsContext } from '../LyricsContext';
 import styled from 'styled-components';
 
-import { Button } from 'styles/MyStyledComponents';
+import { Button, Paragraph } from 'styles/MyStyledComponents';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlayCircle } from '@fortawesome/free-solid-svg-icons';
 
 export default function LyricsPanel() {
-  const [lyrics, setLyrics] = useState('');
-  const { setShouldShowLoader, songInfo } = useContext(LyricsContext);
+  const { lyrics, songInfo } = useContext(LyricsContext);
+  const { artist, cover, preview, title } = songInfo;
 
-  useEffect(() => {
-    setShouldShowLoader(true);
-    getLyrics();
-  }, []);
-
-  async function getLyrics() {
-    const { artist, title } = songInfo;
-    const res = await fetch(`${baseURL}/v1/${artist}/${title}`);
-    const data = await res.json();
-    setLyrics(data.lyrics);
-    setShouldShowLoader(false);
-  }
-
-  function renderLyricsPanel() {
-    const { artist, cover, preview, title } = songInfo;
-
-    return (
-      <>
-        <SongInfoContainer>
-          <CoverContainer>
-            <img src={cover} alt='album cover' />
-          </CoverContainer>
-          <SongInfo>
-            <h2>{title}</h2>
-            <h3>{artist}</h3>
-            <SongPreviewButton as='a' href={preview} target='_blank' rel='noreferrer'>
-              <FontAwesomeIcon icon={faPlayCircle} /> Song Preview
-            </SongPreviewButton>
-          </SongInfo>
-        </SongInfoContainer>
-        <SongLyrics>{lyrics}</SongLyrics>
-      </>
-    );
-  }
-
-  return <>{lyrics && renderLyricsPanel()}</>;
+  return (
+    <>
+      <SongInfoContainer>
+        <CoverContainer>
+          <img src={cover} alt='album cover' />
+        </CoverContainer>
+        <SongInfo>
+          <h2>{title}</h2>
+          <h3>{artist}</h3>
+          <SongPreviewButton as='a' href={preview} target='_blank' rel='noreferrer'>
+            <FontAwesomeIcon icon={faPlayCircle} /> Song Preview
+          </SongPreviewButton>
+        </SongInfo>
+      </SongInfoContainer>
+      {!lyrics && (
+        <Paragraph>Unfortunately we couldn't find the lyrics for this song...😢</Paragraph>
+      )}
+      <SongLyrics>{lyrics}</SongLyrics>
+    </>
+  );
 }
 
 const SongInfoContainer = styled.section`

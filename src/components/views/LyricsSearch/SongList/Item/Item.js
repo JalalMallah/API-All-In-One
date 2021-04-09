@@ -1,20 +1,21 @@
 import React, { useContext } from 'react';
-import { useHistory } from 'react-router-dom';
-import { LyricsContext } from '../../LyricsContext';
+import { baseURL, LyricsContext } from '../../LyricsContext';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { Button } from 'styles/MyStyledComponents';
 
 export default function Item({ artist, cover, preview, title }) {
-  const { setSongInfo } = useContext(LyricsContext);
-  const history = useHistory();
-  const location = {
-    pathname: '/lyrics-app/lyrics-panel',
-  };
+  const {
+    setSongInfo,
+    setLyrics,
+    setShouldRenderLyricsPanel,
+    setShouldRenderSongList,
+    setShouldShowLoader,
+  } = useContext(LyricsContext);
 
   function handleGetLyricsClick() {
-    history.push(location);
+    setShouldShowLoader(true);
     const songInfo = {
       artist,
       cover,
@@ -22,6 +23,17 @@ export default function Item({ artist, cover, preview, title }) {
       title,
     };
     setSongInfo(songInfo);
+    getLyrics(artist, title);
+  }
+
+  async function getLyrics(artist, title) {
+    const res = await fetch(`${baseURL}/v1/${artist}/${title}`);
+    const data = await res.json();
+    console.log(data);
+    setLyrics(data.lyrics);
+    setShouldShowLoader(false);
+    setShouldRenderSongList(false);
+    setShouldRenderLyricsPanel(true);
   }
 
   return (
