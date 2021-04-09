@@ -59,7 +59,7 @@ export default function Weather() {
         extractWeatherData(data);
       })
       .catch(err => {
-        setShouldShowRequestPanel(true);
+        console.log(err);
       });
   };
 
