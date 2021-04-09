@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import Loader from 'components/Loader/Loader';
+import RequestPanel from 'components/views/Weather/RequestPanel/RequestPanel';
 import { Button, Paragraph, Title, Wrapper } from 'styles/MyStyledComponents';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -23,6 +24,7 @@ export default function Weather() {
   const [shouldShowErrorMessage, setShouldShowErrorMessage] = useState(false);
   const [weatherData, setWeatherData] = useState('');
   const [shouldShowLoader, setShouldShowLoader] = useState(false);
+  const [shouldShowRequestPanel, setShouldShowRequestPanel] = useState(true);
 
   useEffect(() => {
     document.querySelector('input').focus();
@@ -33,6 +35,7 @@ export default function Weather() {
     e.preventDefault();
     if (!city) return;
 
+    setShouldShowRequestPanel(false);
     getWeatherForGivenCity(city);
     setShouldShowLoader(true);
     setShouldShowErrorMessage(false);
@@ -55,7 +58,9 @@ export default function Weather() {
         setShouldShowErrorMessage(false);
         extractWeatherData(data);
       })
-      .catch(err => console.error(err));
+      .catch(err => {
+        setShouldShowRequestPanel(true);
+      });
   };
 
   const extractWeatherData = data => {
@@ -157,6 +162,9 @@ export default function Weather() {
       {shouldShowLoader && <Loader />}
       {weatherData && renderWeatherData()}
       {shouldShowErrorMessage && <Paragraph>City not found...Please try again.</Paragraph>}
+      {shouldShowRequestPanel && (
+        <RequestPanel setShouldShowRequestPanel={setShouldShowRequestPanel} />
+      )}
     </Wrapper>
   );
 }
