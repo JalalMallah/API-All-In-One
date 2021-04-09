@@ -20,7 +20,7 @@ const mPerSecToKmPerHrRatio = 3.6;
 
 export default function Weather() {
   const [city, setCity] = useState('');
-  const [hasFoundCity, setHasFoundCity] = useState(true);
+  const [shouldShowErrorMessage, setShouldShowErrorMessage] = useState(false);
   const [weatherData, setWeatherData] = useState('');
   const [shouldShowLoader, setShouldShowLoader] = useState(false);
 
@@ -33,8 +33,9 @@ export default function Weather() {
     e.preventDefault();
     if (!city) return;
 
-    setShouldShowLoader(true);
     getWeatherForGivenCity(city);
+    setShouldShowLoader(true);
+    setShouldShowErrorMessage(false);
   };
 
   const getWeatherForGivenCity = city => {
@@ -44,11 +45,14 @@ export default function Weather() {
       .then(res => res.json())
       .then(data => {
         if (data.cod !== 200) {
-          setHasFoundCity(false);
+          setShouldShowErrorMessage(true);
+          setShouldShowLoader(false);
+          setCity('');
+          setWeatherData('');
           throw new Error('City not found...');
         }
 
-        setHasFoundCity(true);
+        setShouldShowErrorMessage(false);
         extractWeatherData(data);
       })
       .catch(err => console.error(err));
@@ -152,7 +156,7 @@ export default function Weather() {
       </Form>
       {shouldShowLoader && <Loader />}
       {weatherData && renderWeatherData()}
-      {!hasFoundCity && <Paragraph>City not found...Please try again.</Paragraph>}
+      {shouldShowErrorMessage && <Paragraph>City not found...Please try again.</Paragraph>}
     </Wrapper>
   );
 }
