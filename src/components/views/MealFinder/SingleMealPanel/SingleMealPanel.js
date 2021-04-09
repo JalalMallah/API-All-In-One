@@ -68,6 +68,8 @@ const SingleMealContainer = styled.section`
 
   & h3 {
     margin: 2rem 0 1rem;
+    padding: 0 0 0 0.6rem;
+    border-left: 6px solid var(--dark-blue);
     font-size: 1.8rem;
   }
 
