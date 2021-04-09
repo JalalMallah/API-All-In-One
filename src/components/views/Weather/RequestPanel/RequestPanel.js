@@ -7,6 +7,10 @@ import { Button, Paragraph, Wrapper } from 'styles/MyStyledComponents';
 const demo_cors_link = 'https://cors-anywhere.herokuapp.com/corsdemo';
 
 export default function RequestPanel({ setShouldShowRequestPanel }) {
+  function handleButtonClick() {
+    setShouldShowRequestPanel(false);
+  }
+
   return (
     <Wrapper>
       <Paragraph>
@@ -15,7 +19,7 @@ export default function RequestPanel({ setShouldShowRequestPanel }) {
         access to demo server'. After the confirmation appears, you can come back here and check the
         weather for your city!
       </Paragraph>
-      <StyledButton as='a' href={demo_cors_link} target='_blank'>
+      <StyledButton as='a' href={demo_cors_link} target='_blank' onClick={handleButtonClick}>
         Request access
       </StyledButton>
     </Wrapper>
