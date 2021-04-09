@@ -8,7 +8,7 @@ const demo_cors_link = 'https://cors-anywhere.herokuapp.com/corsdemo';
 
 export default function RequestPanel({ setShouldShowRequestPanel }) {
   function handleButtonClick() {
-    setShouldShowRequestPanel(false);
+    setTimeout(() => setShouldShowRequestPanel(false), 2000);
   }
 
   return (
