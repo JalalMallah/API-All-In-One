@@ -80,7 +80,7 @@ const SingleMealContainer = styled.section`
 
   & li {
     margin: 0 0 0.5rem;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
   }
 `;
 
