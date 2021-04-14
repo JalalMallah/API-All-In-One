@@ -97,10 +97,5 @@ const FrameContainer = styled.div`
 
   & iframe {
     width: 100%;
-    min-height: 180px;
-
-    @media (min-width: 768px) {
-      height: 281px;
-    }
   }
 `;
